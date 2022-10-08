@@ -30,4 +30,4 @@ jobs:
         cache: 'npm'
         cache-dependency-path: "package-lock.json"
     - run: npm install
-    - run: npm run CI=false && react-scripts build --if-present
+    - run: npm CI=false && react-scripts build --if-present
