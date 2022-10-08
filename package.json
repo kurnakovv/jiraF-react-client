@@ -2,7 +2,7 @@
   "name": "jiraf-client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kurnakovmaksim.github.io/jiraF/",
+  "homepage": "https://kurnakovmaksim.github.io/jiraF-react-client/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
