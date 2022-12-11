@@ -12,7 +12,7 @@ function App() {
   const [isAddedGoal, setIsAddedGoal] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    axios.get("https://jiraf-goal.herokuapp.com/goal", {
+    axios.get("https://jiraf-goal.onrender.com/goal", {
       headers: {
         "GoalApiKey": `${process.env.REACT_APP_GOAL_API_KEY}`,
       }
@@ -35,7 +35,7 @@ function App() {
 
     try{
       setGoals((prev) => [...prev, goalDto])
-      axios.post("https://jiraf-goal.herokuapp.com/goal", goalDto, {
+      axios.post("https://jiraf-goal.onrender.com/goal", goalDto, {
         headers: {
           "GoalApiKey": `${process.env.REACT_APP_GOAL_API_KEY}`,
         }
@@ -61,7 +61,7 @@ function App() {
   const handleDeleteGoal = (id: string): void => {
     setIsAddedGoal(false);
     try {
-      axios.delete(`https://jiraf-goal.herokuapp.com/goal?id=${id}`, {
+      axios.delete(`https://jiraf-goal.onrender.com/goal?id=${id}`, {
         headers: {
           "GoalApiKey": `${process.env.REACT_APP_GOAL_API_KEY}`,
         }
