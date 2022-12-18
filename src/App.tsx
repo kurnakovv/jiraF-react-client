@@ -74,6 +74,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Deployed from GitHub Pages</h1>
       {isAddedGoal 
         ? <><h1>Added new goal!</h1><button onClick={() => setIsAddedGoal(false)}>X</button></>
         : <></>
