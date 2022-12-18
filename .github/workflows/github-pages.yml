@@ -24,3 +24,5 @@ jobs:
           run: npm install && npm run cibuild --if-present
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: . # The folder the action should deploy.
