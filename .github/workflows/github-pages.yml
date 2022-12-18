@@ -1,0 +1,28 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: GitHub Pages Deploy
+
+on:
+  push:
+    branches:
+      - "main"
+      - "j-1"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install & build
+        uses: actions/setup-node@v3
+        with:
+          node-version: 17.x
+          cache: 'npm'
+          cache-dependency-path: "package-lock.json"
+          run: npm install && npm run cibuild --if-present
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build # The folder the action should deploy.
