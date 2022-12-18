@@ -9,44 +9,23 @@ on:
       - "main"
       - "j-1"
 
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v3
-#       - name: Install & build
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: 17.x
-#           cache: 'npm'
-#           cache-dependency-path: "package-lock.json"
-#           run: npm install && npm run cibuild --if-present
-#       - name: dir    
-#         run: ls
-#       - name: Deploy 🚀
-#         uses: JamesIves/github-pages-deploy-action@v4
-#         with:
-#           branch: gh-pages
-#           folder: build # The folder the action should deploy.
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [15.x]
-    
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Install and build
-        run: npm install && npm run build
-      
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.1
+        uses: actions/checkout@v3
+      - name: Install & build
+        uses: actions/setup-node@v3
+        with:
+          node-version: 17.x
+          cache: 'npm'
+          cache-dependency-path: "package-lock.json"
+          run: npm install && npm run cibuild --if-present
+      - name: dir    
+        run: ls
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.        
+          folder: dist # The folder the action should deploy.
