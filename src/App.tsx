@@ -74,7 +74,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Test</h1>
+      <h1>Test 2</h1>
       {isAddedGoal 
         ? <><h1>Added new goal!</h1><button onClick={() => setIsAddedGoal(false)}>X</button></>
         : <></>
